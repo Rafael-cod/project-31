@@ -12,23 +12,39 @@ var ground;
 
 function setup() {
   createCanvas(480,800);
+
+  if(frameCount(%60 === 0){
+    particles.push(new Particle(random(width/2-10,width/2+10),10,10));
+  }
+
+  for(var k = 0; k <= width; k = k + 80){
+    divisions.push(new Division(k, height - divisionHeight/2, 10, divisionHeight));
+  }
   
+  for(var j = 40; j <= width; j = j + 50){
+    plinkos.push(new Plinko(j,75));
+  }
+
+  for(var j = 15; j <= width; j = j + 50){
+    plinkos.push(new Plinko(j,175));
+  }
+
+  ground = new Ground(240,790,480,20);
   
 }
 
 function draw() {
-  background(255,255,255);  
+  background(100);  
   drawSprites();
-}
 
-for(var i = 0; i <= width; i = i + 80){
-  divisions.push(new Division(k, height - divisionHeight/2, 10, divisionHeight) )
-}
+  ground.display();
+  
+  for (var j = 0; j < particles.length; j++){
+    particles[j],display();
+  }
 
-for(var i = 40; i <= width; i = i + 50){
-  plinkos.push(new Plinko(j,75));
-}
+  for(var k = 0; k < divisions.length; k++){
+    divisions[k].display();
+  }
 
-for(var i = 15; i <= width; i = i + 50){
-  plinkos.push(new Plinko(j,175));
 }

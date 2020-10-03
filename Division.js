@@ -8,13 +8,13 @@ class Division {
       this.height = height;
       this.x = x;
       this.y = y;
+      World.add(world,this.body);
 
-      World.add(world, this.body);
     }
     display(){
       var pos = this.body.position;
       rectMode(CENTER);
-      FileList(255)
+      fill(255)
       rect(0,0,this.width,this.height);
     }
   }
