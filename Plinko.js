@@ -1,10 +1,7 @@
 class Plinko {
     constructor(x, y) {
       var options = {
-           isStatic:false,
-          'restitution':0.3,
-          'friction':1.0,
-          'density':1.00
+           isStatic:true
       }
       this.body = Matter.Bodies.circle(x, y, 10, options);
       this.radius = 10;
@@ -20,7 +17,7 @@ class Plinko {
       translate(pos.x, pos.y);
       rotate(angle);
       ellipseMode(RADIUS);
-      fill(0,200,0);
+      fill(200);
       ellipse(0,0,this.radius,this.radius);
       pop();
     }
